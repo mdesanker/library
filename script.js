@@ -2,16 +2,15 @@
 
 let myLibrary = [];  // array to store books
 
-function Book(title, author, num_pages, isRead) {
+function Book(title, author, pages, isRead) {
     this.title = title;
     this.author = author;
-    this.num_pages = num_pages;
+    this.pages = pages;
     this.isRead = isRead;
 }
 
 Book.prototype.displayInfo = function () {
-    // console.log(`${this.title} by ${this.author}, is ${this.pages} pages, and is ${read}.`);
-    console.log(this.title);
+    console.log(`${this.title} by ${this.author}, is ${this.pages} pages, and is ${this.isRead}.`);
 }
 
 function addBookToLibrary(book) {
@@ -19,8 +18,8 @@ function addBookToLibrary(book) {
 }
 
 function displayLibrary() {
-    for (let entry in myLibrary) {
-        entry.display();
+    for (i = 0; i < myLibrary.length; i++) {
+        console.log(myLibrary[i]);
     }
 }
 
@@ -32,3 +31,5 @@ let testBook3 = new Book('The Wise Man\'s Fear', 'Patrick Rothfuss', 275, 'not r
 addBookToLibrary(testBook1);
 addBookToLibrary(testBook2);
 addBookToLibrary(testBook3);
+
+testBook1.displayInfo();
