@@ -1,4 +1,9 @@
 /* style.css */
+html {
+    width: 960px;
+    margin: 0 auto;
+}
+/* HEADER CSS */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -7,16 +12,17 @@ body {
 header {
     display: flex;
     justify-content: space-between;
+    margin-top: 50px;
     padding: 0 50px 0;
 }
 div.login-button {
     display: flex;
     align-items: center;
 }
-button {
+header button {
     font-size: 24px;
     font-weight: 700;
-    border: 3px solid rgb(33, 118, 245);
+    border: 2px solid rgb(33, 118, 245);
     border-radius: 10px;
     padding: 5px;
     width: 130px;
@@ -35,4 +41,36 @@ button#login:hover {
 }
 button#signup:hover {
     background-color: rgba(33, 118, 245, 0.2);
+}
+/* ADD BOOK BUTTON */
+button#add-book {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 50px;
+}
+button#add-book:hover {
+    color: darkgray;
+}
+/* TABLE CSS */
+table {
+    width: 100%;
+}
+th {
+    font-weight: 700;
+}
+th#title {
+    text-align: left;
+    padding-left: 10%;
+    width: 50%;
+}
+th#author {
+    width: 25%;
+}
+th#read {
+    width: 15%;
+}
+th#delete {
+    width: 10%;
 }
