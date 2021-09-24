@@ -19,7 +19,7 @@ function addBookToLibrary(book) {
 
 function displayLibrary() {
     for (i = 0; i < myLibrary.length; i++) {
-        console.log(myLibrary[i]);
+        console.table(myLibrary[i]);
     }
 }
 

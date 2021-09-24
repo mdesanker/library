@@ -1,1 +1,38 @@
 /* style.css */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px 0;
+}
+div.login-button {
+    display: flex;
+    align-items: center;
+}
+button {
+    font-size: 24px;
+    font-weight: 700;
+    border: 3px solid rgb(33, 118, 245);
+    border-radius: 10px;
+    padding: 5px;
+    width: 130px;
+    margin: 0 10px;
+}
+button#login {
+    color: white;
+    background-color: rgb(33, 118, 245);
+}
+button#signup {
+    color: rgb(33, 118, 245);
+    background-color: white;
+}
+button#login:hover {
+    opacity: .8;
+}
+button#signup:hover {
+    background-color: rgba(33, 118, 245, 0.2);
+}
