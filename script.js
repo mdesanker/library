@@ -29,7 +29,6 @@ const tableReference = ['title', 'author', 'isRead']
 function clearLibrary() {
     const rows = document.querySelectorAll('tbody tr'); // Not specifying tr child of tbody was working but causing an uncaught DOMException error after functoin ran
     rows.forEach(row => {
-        console.log(row);
         table.deleteRow(row);
     })
 }
@@ -39,18 +38,11 @@ function displayLibrary() {
     clearLibrary();
     for (i = 0; i < myLibrary.length; i++) { // Create row for number of objects in lib
         const tr = table.insertRow();
-        for (j = 0; j < 4; j++) { // Create column for each object detail to display
+        for (j = 0; j < 3; j++) { // Create column for each object detail to display
             const td = tr.insertCell();
-            // Set CSS style for column
-            switch (j) {
-                case 0:
-                    td.style.textAlign = 'left';
-                    td.style.paddingLeft = '50px';
-                    break;
-                case 1:
-                case 2:
-                    td.style.textAlign = 'center';
-                    break;
+            // Set CSS style for status and delete columns
+            if (j > 1) {
+                td.style.textAlign = 'center';
             }
             let cellContent = myLibrary[i][tableReference[j]];
             td.textContent = cellContent;
