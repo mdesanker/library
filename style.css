@@ -20,11 +20,12 @@ div.login-button {
     align-items: center;
 }
 header button {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 18px;
+    /* font-weight: 700; */
     border: 2px solid rgb(33, 118, 245);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 5px;
+    height: 50px;
     width: 130px;
     margin: 0 10px;
 }
@@ -40,7 +41,8 @@ button#login:hover {
     opacity: .8;
 }
 button#signup:hover {
-    background-color: rgba(33, 118, 245, 0.2);
+    font-weight: 600;
+    border-width: 3px;
 }
 /* ADD BOOK BUTTON */
 button#add-book {
@@ -80,25 +82,65 @@ th#delete {
 .add-popup {
     width: 100%;
     text-align: center;
-}
-.add-popup {
     display: none;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 .add-form {
     position: fixed;
-    background-color: white;
     border: 2px solid darkgray;
     top: 20%;
     left: 40%;
     z-index: 99;
+    height: 510px;
+    background-color: lightgray;
 }
 .form-container {
     max-width: 300px;
     padding: 25px;
-    background-color: lightgray;
     display: flex;
     flex-direction: column;
 }
+form {
+    font-size: 20px;
+    font-weight: 700;
+}
+form input {
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+}
 .read-checkbox {
     display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.checkbox {
+    width: 15px;
+    height: 15px;
+}
+form button {
+    font-size: 20px;
+    /* font-weight: 700; */
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    border: 2px solid rgb(33, 118, 245);
+}
+.submit-btn {
+    color: white;
+    background-color: rgb(33, 118, 245);
+}
+.submit-btn:hover {
+    opacity: 0.8;
+}
+.cancel-btn {
+    color: rgb(33, 118, 245);
+    background-color: white;
+}
+.cancel-btn:hover {
+    font-weight: 600;
+    border-width: 3px;
 }
