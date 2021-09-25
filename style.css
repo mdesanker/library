@@ -61,12 +61,11 @@ table {
     font-size: 18px;
 }
 th {
-    font-weight: 700;
     font-size: 20px;
 }
 th#title {
     text-align: left;
-    padding-left: 10%;
+    padding-left: 50px;
     width: 50%;
 }
 th#author {

@@ -17,52 +17,45 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
-function displayLibrary() {
-    for (i = 0; i < myLibrary.length; i++) {
-        console.table(myLibrary[i]);
-    }
-}
-
-// Test books for development
-let testBook1 = new Book('The Hobbit', 'J.R.R. Tolkien', 324, 'not read');
-let testBook2 = new Book('The Name of the Wind', 'Patrick Rothfuss', 451, 'read');
-let testBook3 = new Book('The Wise Man\'s Fear', 'Patrick Rothfuss', 275, 'not read');
-// Add test books to library
-addBookToLibrary(testBook1);
-addBookToLibrary(testBook2);
-addBookToLibrary(testBook3);
-
-testBook1.displayInfo();
+// function displayLibrary() {
+//     for (i = 0; i < myLibrary.length; i++) {
+//         console.table(myLibrary[i]);
+//     }
+// }
 
 // TABLE JAVASCRIPT //
-const tableholder = document.querySelector('.table-container');
+const tableholder = document.querySelector('table');
 
 const perRow = 4;
-const table = document.createElement('table');
+const table = document.querySelector('tbody');
 const row = table.insertRow()
 const tableReference = ['title', 'author', 'isRead']
 
-// Create header row
-// table.textContent = <tr>
-//     <th id="title">Title</th>
-//     <th id="author">Author</th>
-//     <th id="read">Read</th>
-//     <th id="delete"></th>
-// </tr>;
-
 // Create data row
-for (i = 0; i < myLibrary.length; i++) { // Create row for number of objects in lib
-    let tr = table.insertRow();
-    for (j = 0; j < 4; j++) { // Create column for each object detail to display
-        let td = tr.insertCell();
-        let cellContent = myLibrary[i][tableReference[j]];
-        td.textContent = cellContent;
-        console.log(cellContent);
+function displayLibrary() {
+    // $('#library-table').detach();
+    for (i = 0; i < myLibrary.length; i++) { // Create row for number of objects in lib
+        const tr = table.insertRow();
+        for (j = 0; j < 4; j++) { // Create column for each object detail to display
+            const td = tr.insertCell();
+            // Set CSS style for column
+            switch (j) {
+                case 0:
+                    td.style.textAlign = 'left';
+                    td.style.paddingLeft = '50px';
+                    break;
+                case 1:
+                case 2:
+                    td.style.textAlign = 'center';
+                    break;
+            }
+            let cellContent = myLibrary[i][tableReference[j]];
+            td.textContent = cellContent;
+        }
+
     }
-
+    tableholder.appendChild(table);
 }
-
-tableholder.appendChild(table);
 
 // PPOP-UP JAVASCRIPT //
 function openForm() {
@@ -71,3 +64,14 @@ function openForm() {
 function closeForm() {
     document.querySelector('.add-popup').style.display = "none";
 }
+
+
+// Test books for development
+let testBook1 = new Book('The Hobbit', 'J.R.R. Tolkien', 324, 'not read');
+let testBook2 = new Book('The Name of the Wind', 'Patrick Rothfuss', 451, 'read');
+let testBook3 = new Book('The Wise Man\'s Fear', 'Patrick Rothfuss', 275, 'not read');
+
+// Add test books to library
+addBookToLibrary(testBook1);
+addBookToLibrary(testBook2);
+addBookToLibrary(testBook3);
