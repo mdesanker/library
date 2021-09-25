@@ -96,6 +96,23 @@ tr:last-child {
 td:first-child {
     padding-left: 20px;
 }
+.delete-btn {
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    color: darkgray;
+    font-size: 18px;
+    padding: 5px;
+    opacity: 0.3;
+    border: none;
+    border-radius: 50%;
+}
+.delete-btn:hover {
+    background-color: red;
+    color: white;
+    opacity: 0.4;
+    font-weight: 700;
+}
 /* POP-UP CSS */
 .add-popup {
     width: 100%;

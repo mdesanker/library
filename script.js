@@ -25,6 +25,9 @@ const table = document.querySelector('tbody');
 const row = table.insertRow()
 const tableReference = ['title', 'author', 'isRead']
 
+// Create delete button
+
+
 // Clear library data
 function clearLibrary() {
     const rows = document.querySelectorAll('tbody tr'); // Not specifying tr child of tbody was working but causing an uncaught DOMException error after functoin ran
@@ -38,16 +41,25 @@ function displayLibrary() {
     clearLibrary();
     for (i = 0; i < myLibrary.length; i++) { // Create row for number of objects in lib
         const tr = table.insertRow();
-        for (j = 0; j < 3; j++) { // Create column for each object detail to display
+        for (j = 0; j < 4; j++) { // Create column for each object detail to display
             const td = tr.insertCell();
             // Set CSS style for status and delete columns
             if (j > 1) {
                 td.style.textAlign = 'center';
             }
             let cellContent = myLibrary[i][tableReference[j]];
-            td.textContent = cellContent;
+            if (j === 3) {
+                const deleteBtn = document.createElement('button')
+                deleteBtn.type = 'button';
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.id = i; // Will be used to identify row to delete
+                deleteBtn.textContent = 'X';
+                // deleteBtn.onclick = deleteLibraryRow();
+                td.appendChild(deleteBtn); // Same button gets reappended each call
+            } else {
+                td.textContent = cellContent;
+            }
         }
-
     }
     tableholder.appendChild(table);
 }
