@@ -34,7 +34,37 @@ addBookToLibrary(testBook3);
 
 testBook1.displayInfo();
 
-// Pop-up form
+// TABLE JAVASCRIPT //
+const tableholder = document.querySelector('.table-container');
+
+const perRow = 4;
+const table = document.createElement('table');
+const row = table.insertRow()
+const tableReference = ['title', 'author', 'isRead']
+
+// Create header row
+// table.textContent = <tr>
+//     <th id="title">Title</th>
+//     <th id="author">Author</th>
+//     <th id="read">Read</th>
+//     <th id="delete"></th>
+// </tr>;
+
+// Create data row
+for (i = 0; i < myLibrary.length; i++) { // Create row for number of objects in lib
+    let tr = table.insertRow();
+    for (j = 0; j < 4; j++) { // Create column for each object detail to display
+        let td = tr.insertCell();
+        let cellContent = myLibrary[i][tableReference[j]];
+        td.textContent = cellContent;
+        console.log(cellContent);
+    }
+
+}
+
+tableholder.appendChild(table);
+
+// PPOP-UP JAVASCRIPT //
 function openForm() {
     document.querySelector('.add-popup').style.display = "block";
 }
