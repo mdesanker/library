@@ -33,3 +33,11 @@ addBookToLibrary(testBook2);
 addBookToLibrary(testBook3);
 
 testBook1.displayInfo();
+
+// Pop-up form
+function openForm() {
+    document.querySelector('.add-popup').style.display = "block";
+}
+function closeForm() {
+    document.querySelector('.add-popup').style.display = "none";
+}

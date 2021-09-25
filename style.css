@@ -56,9 +56,11 @@ button#add-book:hover {
 /* TABLE CSS */
 table {
     width: 100%;
+    font-size: 18px;
 }
 th {
     font-weight: 700;
+    font-size: 20px;
 }
 th#title {
     text-align: left;
@@ -73,4 +75,30 @@ th#read {
 }
 th#delete {
     width: 10%;
+}
+/* POP-UP CSS */
+.add-popup {
+    width: 100%;
+    text-align: center;
+}
+.add-popup {
+    display: none;
+}
+.add-form {
+    position: fixed;
+    background-color: white;
+    border: 2px solid darkgray;
+    top: 20%;
+    left: 40%;
+    z-index: 99;
+}
+.form-container {
+    max-width: 300px;
+    padding: 25px;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+}
+.read-checkbox {
+    display: flex;
 }
