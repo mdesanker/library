@@ -17,12 +17,6 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
-// function displayLibrary() {
-//     for (i = 0; i < myLibrary.length; i++) {
-//         console.table(myLibrary[i]);
-//     }
-// }
-
 // TABLE JAVASCRIPT //
 const tableholder = document.querySelector('table');
 
@@ -31,9 +25,18 @@ const table = document.querySelector('tbody');
 const row = table.insertRow()
 const tableReference = ['title', 'author', 'isRead']
 
-// Create data row
+// Clear library data
+function clearLibrary() {
+    const rows = document.querySelectorAll('tbody tr'); // Not specifying tr child of tbody was working but causing an uncaught DOMException error after functoin ran
+    rows.forEach(row => {
+        console.log(row);
+        table.deleteRow(row);
+    })
+}
+
+// Generate table of library entries
 function displayLibrary() {
-    // $('#library-table').detach();
+    clearLibrary();
     for (i = 0; i < myLibrary.length; i++) { // Create row for number of objects in lib
         const tr = table.insertRow();
         for (j = 0; j < 4; j++) { // Create column for each object detail to display
@@ -75,3 +78,5 @@ let testBook3 = new Book('The Wise Man\'s Fear', 'Patrick Rothfuss', 275, 'not r
 addBookToLibrary(testBook1);
 addBookToLibrary(testBook2);
 addBookToLibrary(testBook3);
+
+displayLibrary();
