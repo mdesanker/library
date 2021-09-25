@@ -71,6 +71,7 @@ function openForm() {
 function closeForm() {
     document.querySelector('.add-popup').style.display = "none";
 }
+// Clicking outside of pop-up will close pop-up
 
 
 // Test books for development

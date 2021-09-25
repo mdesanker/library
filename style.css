@@ -21,7 +21,6 @@ div.login-button {
 }
 header button {
     font-size: 18px;
-    /* font-weight: 700; */
     border: 2px solid rgb(33, 118, 245);
     border-radius: 5px;
     padding: 5px;
@@ -47,13 +46,15 @@ button#signup:hover {
 /* ADD BOOK BUTTON */
 button#add-book {
     background-color: transparent;
+    color: black;
+    opacity: 0.5;
     border: none;
     font-size: 20px;
     padding: 10px;
     margin-left: 50px;
 }
 button#add-book:hover {
-    color: darkgray;
+    opacity: 1;
 }
 /* TABLE CSS */
 table {
@@ -127,7 +128,7 @@ td:first-child {
     left: 40%;
     z-index: 99;
     height: 510px;
-    background-color: lightgray;
+    background-color: rgb(240, 240, 240);
 }
 .form-container {
     max-width: 300px;
