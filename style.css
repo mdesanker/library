@@ -115,7 +115,7 @@ td:first-child {
     font-weight: 700;
 }
 /* POP-UP CSS */
-.add-popup {
+#add-popup {
     width: 100%;
     text-align: center;
     display: none;

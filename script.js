@@ -52,7 +52,7 @@ function displayLibrary() {
                 const deleteBtn = document.createElement('button')
                 deleteBtn.type = 'button';
                 deleteBtn.className = 'delete-btn';
-                deleteBtn.id = i; // Will be used to identify row to delete
+                deleteBtn.dataset.id = i; // Will be used to identify row to delete
                 deleteBtn.textContent = 'X';
                 // deleteBtn.onclick = deleteLibraryRow();
                 td.appendChild(deleteBtn); // Same button gets reappended each call
@@ -64,13 +64,22 @@ function displayLibrary() {
     tableholder.appendChild(table);
 }
 
+// Library entry delete button
+const deleteBtns = document.querySelectorAll('.delete-btn');
+// deleteBtns.forEach
+
 // PPOP-UP JAVASCRIPT //
 function openForm() {
-    document.querySelector('.add-popup').style.display = "block";
+    document.querySelector('#add-popup').style.display = "block";
 }
 function closeForm() {
-    document.querySelector('.add-popup').style.display = "none";
+    document.querySelector('#add-popup').style.display = "none";
 }
+const openBtn = document.querySelector('#add-book');
+openBtn.addEventListener('click', () => {
+    openForm();
+})
+
 // Clicking outside of pop-up will close pop-up
 
 
@@ -85,3 +94,17 @@ addBookToLibrary(testBook2);
 addBookToLibrary(testBook3);
 
 displayLibrary();
+
+// FORM JAVASCRIPT //
+const form = document.querySelector('#add-book');
+
+form.addEventListener('submit', (event) => {
+    console.log("Form submitted");
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    for (const formElement of formData) {
+        console.log(formElement);
+    }
+})
