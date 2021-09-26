@@ -21,7 +21,7 @@ function addBookToLibrary(book) {
 // Create new book objects
 let testBook1 = new Book('The Hobbit', 'J.R.R. Tolkien', 324, 'not read');
 let testBook2 = new Book('The Name of the Wind', 'Patrick Rothfuss', 451, 'read');
-let testBook3 = new Book('The Wise Man\'s Fear', 'Patrick Rothfuss', 275, 'not read');
+let testBook3 = new Book('The Cat in the Hat', 'Dr. Seuss', 12, 'not read');
 
 
 
@@ -59,7 +59,7 @@ function displayLibrary() {
             if (j === 2) {
                 const readBtn = document.createElement('button');
                 readBtn.type = 'button';
-                readBtn.class = 'read-btn';
+                readBtn.className = 'read-btn';
                 readBtn.id = i;
                 readBtn.textContent = cellContent;
                 td.appendChild(readBtn);
@@ -111,6 +111,12 @@ openBtn.addEventListener('click', () => {
 // Clicking outside of pop-up will close pop-up
 
 // Change read status by pressing book status
+const readBtns = document.querySelectorAll('.read-btn');
+readBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        myLibrary[button.id].changeReadStatus();
+    })
+})
 
 // Library entry delete button
 const deleteBtns = document.querySelectorAll('.delete-btn');
@@ -118,7 +124,7 @@ deleteBtns.forEach(button => {
     button.addEventListener('click', () => {
         myLibrary.splice(button.id, 1);
         displayLibrary();
-        deleteBtns = document.querySelectorAll('.delete-btn');
+        // deleteBtns = document.querySelectorAll('.delete-btn');
     })
 })
 
