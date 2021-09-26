@@ -17,6 +17,13 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+// Test books for development
+let testBook1 = new Book('The Hobbit', 'J.R.R. Tolkien', 324, 'not read');
+let testBook2 = new Book('The Name of the Wind', 'Patrick Rothfuss', 451, 'read');
+let testBook3 = new Book('The Wise Man\'s Fear', 'Patrick Rothfuss', 275, 'not read');
+
+
+
 // TABLE JAVASCRIPT //
 const tableholder = document.querySelector('table');
 
@@ -52,7 +59,7 @@ function displayLibrary() {
                 const deleteBtn = document.createElement('button')
                 deleteBtn.type = 'button';
                 deleteBtn.className = 'delete-btn';
-                deleteBtn.dataset.id = i; // Will be used to identify row to delete
+                deleteBtn.id = i; // Will be used to identify row to delete
                 deleteBtn.textContent = 'X';
                 // deleteBtn.onclick = deleteLibraryRow();
                 td.appendChild(deleteBtn); // Same button gets reappended each call
@@ -64,9 +71,22 @@ function displayLibrary() {
     tableholder.appendChild(table);
 }
 
-// Library entry delete button
-const deleteBtns = document.querySelectorAll('.delete-btn');
-// deleteBtns.forEach
+// Add test books to library
+addBookToLibrary(testBook1);
+addBookToLibrary(testBook2);
+addBookToLibrary(testBook3);
+
+displayLibrary();
+
+Book.prototype.changeReadStatus = function () {
+    if (this.isRead === "read") {
+        console.log('Book is now unread');
+        this.isRead = 'not read';
+    } else {
+        this.isRead = 'read'
+    }
+    displayLibrary();
+}
 
 // PPOP-UP JAVASCRIPT //
 function openForm() {
@@ -82,18 +102,14 @@ openBtn.addEventListener('click', () => {
 
 // Clicking outside of pop-up will close pop-up
 
-
-// Test books for development
-let testBook1 = new Book('The Hobbit', 'J.R.R. Tolkien', 324, 'not read');
-let testBook2 = new Book('The Name of the Wind', 'Patrick Rothfuss', 451, 'read');
-let testBook3 = new Book('The Wise Man\'s Fear', 'Patrick Rothfuss', 275, 'not read');
-
-// Add test books to library
-addBookToLibrary(testBook1);
-addBookToLibrary(testBook2);
-addBookToLibrary(testBook3);
-
-displayLibrary();
+// Library entry delete button
+let deleteBtns = document.querySelectorAll('.delete-btn');
+deleteBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        myLibrary.splice(button.id, 1);
+        displayLibrary();
+    })
+});
 
 // FORM JAVASCRIPT //
 const form = document.querySelector('#add-book');
