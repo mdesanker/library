@@ -18,6 +18,7 @@ function addBookToLibrary(book) {
 }
 
 // Test books for development
+// Create new book objects
 let testBook1 = new Book('The Hobbit', 'J.R.R. Tolkien', 324, 'not read');
 let testBook2 = new Book('The Name of the Wind', 'Patrick Rothfuss', 451, 'read');
 let testBook3 = new Book('The Wise Man\'s Fear', 'Patrick Rothfuss', 275, 'not read');
@@ -55,13 +56,19 @@ function displayLibrary() {
                 td.style.textAlign = 'center';
             }
             let cellContent = myLibrary[i][tableReference[j]];
-            if (j === 3) {
+            if (j === 2) {
+                const readBtn = document.createElement('button');
+                readBtn.type = 'button';
+                readBtn.class = 'read-btn';
+                readBtn.id = i;
+                readBtn.textContent = cellContent;
+                td.appendChild(readBtn);
+            } else if (j === 3) {
                 const deleteBtn = document.createElement('button')
                 deleteBtn.type = 'button';
                 deleteBtn.className = 'delete-btn';
                 deleteBtn.id = i; // Will be used to identify row to delete
                 deleteBtn.textContent = 'X';
-                // deleteBtn.onclick = deleteLibraryRow();
                 td.appendChild(deleteBtn); // Same button gets reappended each call
             } else {
                 td.textContent = cellContent;
@@ -72,6 +79,7 @@ function displayLibrary() {
 }
 
 // Add test books to library
+// Add book objects to library array
 addBookToLibrary(testBook1);
 addBookToLibrary(testBook2);
 addBookToLibrary(testBook3);
@@ -102,14 +110,17 @@ openBtn.addEventListener('click', () => {
 
 // Clicking outside of pop-up will close pop-up
 
+// Change read status by pressing book status
+
 // Library entry delete button
-let deleteBtns = document.querySelectorAll('.delete-btn');
+const deleteBtns = document.querySelectorAll('.delete-btn');
 deleteBtns.forEach(button => {
     button.addEventListener('click', () => {
         myLibrary.splice(button.id, 1);
         displayLibrary();
+        deleteBtns = document.querySelectorAll('.delete-btn');
     })
-});
+})
 
 // FORM JAVASCRIPT //
 const form = document.querySelector('#add-book');
