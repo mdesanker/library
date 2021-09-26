@@ -22,15 +22,21 @@
         <div class="form-container">
             <form action="">
                 <div class="entry">
-                    <label for="title-input">BOOK</label>
-                    <input type="text" id="title-input" required>
-                    <label for="author">Author</label>
-                    <input type="text" id="author-input" required>
-                    <label for="status-select">Status</label>
-                    <select name="status" id="status-select">Status
-                        <option value="read" default>Read</option>
-                        <option value="unread">Not read</option>
-                    </select>
+                    <div class="input-holder">
+                        <label for="title-input">Title</label>
+                        <input type="text" id="title-input" required>
+                    </div>
+                    <div class="input-holder">
+                        <label for="author-input">Author</label>
+                        <input type="text" id="author-input" required>
+                    </div>
+                    <div class="input-holder">
+                        <label for="status-select">Status</label>
+                        <select name="status" id="status-select">Status
+                            <option value="read" default>Read</option>
+                            <option value="unread">Not read</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="submit">
                     <button type="submit">Submit</button>

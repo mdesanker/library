@@ -31,3 +31,24 @@ header h1 {
     display: flex;
     gap: 10px;
 }
+/* FORM CSS */
+.form-container {
+    margin: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border: thin solid lightgray;
+}
+.entry {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+.input-holder {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin: 5px;
+}
