@@ -1,0 +1,182 @@
+/* styleold.css */
+html {
+    width: 960px;
+    margin: 0 auto;
+}
+/* HEADER CSS */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding: 0 50px 0;
+}
+div.login-button {
+    display: flex;
+    align-items: center;
+}
+header button {
+    font-size: 18px;
+    border: 2px solid rgb(33, 118, 245);
+    border-radius: 5px;
+    padding: 5px;
+    height: 50px;
+    width: 130px;
+    margin: 0 10px;
+}
+button#login {
+    color: white;
+    background-color: rgb(33, 118, 245);
+}
+button#signup {
+    color: rgb(33, 118, 245);
+    background-color: white;
+}
+button#login:hover {
+    opacity: .8;
+}
+button#signup:hover {
+    font-weight: 600;
+    border-width: 3px;
+}
+/* ADD BOOK BUTTON */
+button#add-book {
+    background-color: transparent;
+    color: black;
+    opacity: 0.5;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 50px;
+}
+button#add-book:hover {
+    opacity: 1;
+}
+/* TABLE CSS */
+table {
+    width: 960px;
+    margin: 0 auto;
+    font-size: 18px;
+    border-collapse: collapse;
+}
+th {
+    font-size: 20px;
+    text-align: left;
+}
+th#title {
+    padding-left: 20px;
+    width: 40%;
+}
+th#author {
+    width: 30%;
+    text-align: left;
+}
+th#read {
+    width: 20%;
+    text-align: center;
+}
+th#delete {
+    width: 10%;
+}
+tr, th {
+    border-bottom: thin solid lightgray;
+}
+tr {
+    height: 60px;
+}
+tbody tr {
+    text-align: left;
+}
+tr:last-child {
+    border-bottom: none;
+}
+td:first-child {
+    padding-left: 20px;
+}
+.delete-btn {
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    color: darkgray;
+    font-size: 18px;
+    padding: 5px;
+    opacity: 0.3;
+    border: none;
+    border-radius: 50%;
+}
+.delete-btn:hover {
+    background-color: red;
+    color: white;
+    opacity: 0.4;
+    font-weight: 700;
+}
+/* POP-UP CSS */
+#add-popup {
+    width: 100%;
+    text-align: center;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.add-form {
+    position: fixed;
+    border: 2px solid darkgray;
+    top: 20%;
+    left: 40%;
+    z-index: 99;
+    height: 510px;
+    background-color: rgb(240, 240, 240);
+}
+.form-container {
+    max-width: 300px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+form {
+    font-size: 20px;
+    font-weight: 700;
+}
+form input {
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+}
+.read-checkbox {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.checkbox {
+    width: 15px;
+    height: 15px;
+}
+form button {
+    font-size: 20px;
+    /* font-weight: 700; */
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    border: 2px solid rgb(33, 118, 245);
+}
+.submit-btn {
+    color: white;
+    background-color: rgb(33, 118, 245);
+}
+.submit-btn:hover {
+    opacity: 0.8;
+}
+.cancel-btn {
+    color: rgb(33, 118, 245);
+    background-color: white;
+}
+.cancel-btn:hover {
+    font-weight: 600;
+    border-width: 3px;
+}
