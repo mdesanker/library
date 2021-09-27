@@ -34,6 +34,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     addBookToLibrary();
     clearForm();
+    display();
 })
 
 function clearForm() {
@@ -46,21 +47,17 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
 }
 
-function changeStatus(book) {
-    if (libraryTable[book] === 'read') {
-        libraryTable[book].status = 'not read';
-    } else libraryTable[book].status = 'read';
-}
-
-function deleteBook(index) {
-    myLibrary.splice(index, index + 1);
+function changeStatus(index) {
+    if (myLibrary[index].status === 'read') {
+        myLibrary[index].status = 'not read';
+    } else myLibrary[index].status = 'read';
     display();
 }
 
-// Add change read status function
-
-// Update table display
-
+function deleteBook(index) {
+    myLibrary.splice(index, 1);
+    display();
+}
 
 // function clearTable() {
 //     for (i = 0; i <= libraryTable.rows.length; i++) {
@@ -88,6 +85,7 @@ function display() {
                     statusBtn.id = j;
                     statusBtn.textContent = myLibrary[j].status;
                     newCell.append(statusBtn);
+                    statusBtn.addEventListener('click', () => changeStatus(statusBtn.id));
                     break;
                 case 3:
                     const deleteBtn = document.createElement('button');
