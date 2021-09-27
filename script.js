@@ -26,20 +26,15 @@ const bookStatus = document.querySelector('#status-select');
 const form = document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
     addBookToLibrary();
-    // const newBook = new Book(bookTitle.value, bookAuthor.value, bookStatus.value);
-    // addBookToLibrary(newBook);
-    // alert(`${myLibrary[1].title} by ${myLibrary[1].author}, and is ${myLibrary[1].status}.`);
+    clearForm();
 })
 
 function clearForm() {
-
+    bookTitle.value = '';
+    bookAuthor.value = '';
 }
 
 function addBookToLibrary() {
-    if (!bookTitle.value && !bookAuthor.value) {
-        alert('Please fill in all the fields');
-        return;
-    }
     const newBook = new Book(bookTitle.value, bookAuthor.value, bookStatus.value);
     myLibrary.push(newBook);
 }
