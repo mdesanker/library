@@ -46,15 +46,32 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
 }
 
-function changeStatus() {
-    // Add change read status function
-    // Update table display
+function changeStatus(book) {
+    if (libraryTable[book] === 'read') {
+        libraryTable[book].status = 'not read';
+    } else libraryTable[book].status = 'read';
 }
 
+function deleteBook(index) {
+    myLibrary.splice(index, index + 1);
+    display();
+}
+
+// Add change read status function
+
+// Update table display
+
+
+// function clearTable() {
+//     for (i = 0; i <= libraryTable.rows.length; i++) {
+//         console.log(i);
+//         libraryTable.removeChild(libraryTable.firstChild);
+//     }
+// }
+
 function display() {
-    libraryTable.innerHTML = '';
+    libraryTable.innerHTML = ''; // Not a secure solution, but other options haven't worked
     for (j = 0; j < myLibrary.length; j++) {
-        // myLibrary.forEach((book) => {
         let newRow = libraryTable.insertRow();
         for (i = 0; i < 4; i++) {
             let newCell = newRow.insertCell();
@@ -68,15 +85,28 @@ function display() {
                 case 2:
                     const statusBtn = document.createElement('button');
                     statusBtn.classList.add('status-btn');
+                    statusBtn.id = j;
                     statusBtn.textContent = myLibrary[j].status;
                     newCell.append(statusBtn);
                     break;
                 case 3:
                     const deleteBtn = document.createElement('button');
                     deleteBtn.classList.add('delete-btn');
+                    deleteBtn.id = j;
                     deleteBtn.textContent = 'Delete';
                     newCell.append(deleteBtn);
+                    deleteBtn.addEventListener('click', () => deleteBook(deleteBtn.id));
             }
         }
     }
 }
+
+display();
+
+const statusBtns = document.querySelectorAll('.status-btn');
+statusBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        console.log(button.id);
+        changeStatus(button.id);
+    })
+})

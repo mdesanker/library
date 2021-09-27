@@ -58,9 +58,9 @@ header h1 {
 label {
     margin: 5px;
 }
-input {
+input[type="text"] {
     font-size: 14px;
-    line-height: 25px;
+    line-height: 200%;
     width: 250px;
 }
 select {
@@ -78,7 +78,7 @@ table {
     table-layout: fixed;
 }
 tr {
-    line-height: 50px;
+    line-height: 300%;
     text-align: left;
 }
 /* td {
