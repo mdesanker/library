@@ -79,7 +79,5 @@ table {
 tr {
     line-height: 40px;
     text-align: left;
-}
-tr:nth-last-child() {
-    border-bottom: none;
+    border-bottom: thin solid gray;
 }

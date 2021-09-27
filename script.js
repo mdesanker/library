@@ -1,5 +1,9 @@
 // script.js //
-let myLibrary = []
+// let myLibrary = []
+
+let myLibrary = [
+    { title: 'The Lion, the Witch, and the Wardrobe', author: 'Lewis', status: 'read' }
+]
 
 function Book(title, author, status) {
     this.title = title;
@@ -23,7 +27,10 @@ const book1 = new Book("The Lion, the Witch, and the Wardrobe", "Lewis", "read")
 const bookTitle = document.querySelector('#title-input');
 const bookAuthor = document.querySelector('#author-input');
 const bookStatus = document.querySelector('#status-select');
-const form = document.querySelector('form').addEventListener('submit', (e) => {
+const libraryTable = document.querySelector('#library-table');
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (e) => {
     e.preventDefault();
     addBookToLibrary();
     clearForm();
@@ -37,4 +44,33 @@ function clearForm() {
 function addBookToLibrary() {
     const newBook = new Book(bookTitle.value, bookAuthor.value, bookStatus.value);
     myLibrary.push(newBook);
+}
+
+function display() {
+    for (j = 0; j < myLibrary.length; j++) {
+        // myLibrary.forEach((book) => {
+        let newRow = libraryTable.insertRow();
+        for (i = 0; i < 4; i++) {
+            let newCell = newRow.insertCell();
+            switch (i) {
+                case 0:
+                    newCell.textContent = myLibrary[j].title;
+                    break;
+                case 1:
+                    newCell.textContent = myLibrary[j].author;
+                    break;
+                case 2:
+                    const statusBtn = document.createElement('button');
+                    statusBtn.classList.add('status-btn');
+                    statusBtn.textContent = myLibrary[j].status;
+                    newCell.append(statusBtn);
+                    break;
+                case 3:
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('delete-btn');
+                    deleteBtn.textContent = 'Delete';
+                    newCell.append(deleteBtn);
+            }
+        }
+    }
 }
