@@ -2,7 +2,9 @@
 // let myLibrary = []
 
 let myLibrary = [
-    { title: 'The Lion, the Witch, and the Wardrobe', author: 'Lewis', status: 'read' }
+    { title: 'The Name of the Wind', author: 'Rothfuss', status: 'read' },
+    { title: 'The Kite Runner', author: 'Hosseini', status: 'read' },
+    { title: 'Harry Potter and the Chamber of Secrets', author: "Rowling", status: 'read' },
 ]
 
 function Book(title, author, status) {
@@ -19,11 +21,9 @@ Book.prototype.displayInfo = function () {
     console.log(`${this.title} by ${this.author}, and is ${this.status}.`);
 }
 
-// Test books
+// Test book
 const book1 = new Book("The Lion, the Witch, and the Wardrobe", "Lewis", "read");
-// addBookToLibrary(book1);
 
-// FORM JS //
 const bookTitle = document.querySelector('#title-input');
 const bookAuthor = document.querySelector('#author-input');
 const bookStatus = document.querySelector('#status-select');
@@ -100,11 +100,3 @@ function display() {
 }
 
 display();
-
-const statusBtns = document.querySelectorAll('.status-btn');
-statusBtns.forEach(button => {
-    button.addEventListener('click', () => {
-        console.log(button.id);
-        changeStatus(button.id);
-    })
-})
