@@ -27,7 +27,7 @@ const book1 = new Book("The Lion, the Witch, and the Wardrobe", "Lewis", "read")
 const bookTitle = document.querySelector('#title-input');
 const bookAuthor = document.querySelector('#author-input');
 const bookStatus = document.querySelector('#status-select');
-const libraryTable = document.querySelector('#library-table');
+const libraryTable = document.querySelector('tbody');
 const form = document.querySelector('form');
 
 form.addEventListener('submit', (e) => {
@@ -46,7 +46,13 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
 }
 
+function changeStatus() {
+    // Add change read status function
+    // Update table display
+}
+
 function display() {
+    libraryTable.innerHTML = '';
     for (j = 0; j < myLibrary.length; j++) {
         // myLibrary.forEach((book) => {
         let newRow = libraryTable.insertRow();
