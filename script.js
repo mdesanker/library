@@ -67,7 +67,7 @@ function deleteBook(index) {
 // }
 
 function display() {
-    libraryTable.innerHTML = ''; // Not a secure solution, but other options haven't worked
+    libraryTable.innerHTML = ''; // Not a secure solution, but other options haven't worked yet
     for (j = 0; j < myLibrary.length; j++) {
         let newRow = libraryTable.insertRow();
         for (i = 0; i < 4; i++) {
