@@ -1,7 +1,7 @@
 /* style.css */
 /* GENERAL CSS */
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto, sans-serif;
     width: 900px;
     margin: 0 auto;
     padding: 0;
@@ -29,7 +29,8 @@ header {
     margin-top: 50px;
 }
 header h1 {
-    font-weight: 300;
+    font-weight: 100;
+    font-size: 50px;
 }
 .header-btns {
     display: flex;

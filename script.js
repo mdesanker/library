@@ -1,28 +1,21 @@
 // script.js //
 // let myLibrary = []
 
-let myLibrary = [
+let defaultLibrary = [ // Program uses this default library if !localStorage
     { title: 'The Name of the Wind', author: 'Rothfuss', status: 'read' },
     { title: 'The Kite Runner', author: 'Hosseini', status: 'read' },
     { title: 'Harry Potter and the Chamber of Secrets', author: "Rowling", status: 'read' },
 ]
 
-function Book(title, author, status) {
+function Book(title, author, status) { // New book constructor
     this.title = title;
     this.author = author;
     this.status = status;
 }
 
-function addBookToLibrary(book) {
-    myLibrary.push(book)
-}
-
-Book.prototype.displayInfo = function () {
-    console.log(`${this.title} by ${this.author}, and is ${this.status}.`);
-}
-
-// Test book
-const book1 = new Book("The Lion, the Witch, and the Wardrobe", "Lewis", "read");
+// Book.prototype.displayInfo = function () {  // This function was used in testing
+//     console.log(`${this.title} by ${this.author}, and is ${this.status}.`);
+// }
 
 const bookTitle = document.querySelector('#title-input');
 const bookAuthor = document.querySelector('#author-input');
@@ -30,36 +23,48 @@ const bookStatus = document.querySelector('#status-select');
 const libraryTable = document.querySelector('tbody');
 const form = document.querySelector('form');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', (e) => { // Update library table on new entry submission
     e.preventDefault();
     addBookToLibrary();
     clearForm();
     display();
 })
 
-function clearForm() {
+function clearForm() { // Set input fields to empty string
     bookTitle.value = '';
     bookAuthor.value = '';
 }
 
-function addBookToLibrary() {
+function addBookToLibrary() { // Construct new book with input field values
     const newBook = new Book(bookTitle.value, bookAuthor.value, bookStatus.value);
     myLibrary.push(newBook);
 }
 
-function changeStatus(index) {
+function changeStatus(index) { // Change read status
     if (myLibrary[index].status === 'read') {
         myLibrary[index].status = 'not read';
     } else myLibrary[index].status = 'read';
     display();
 }
 
-function deleteBook(index) {
+function deleteBook(index) { // Remove book from library array
     myLibrary.splice(index, 1);
     display();
 }
 
+function storeLocal(array) { // Save current library to local storage
+    localStorage.setItem('storedLibrary', JSON.stringify(array));
+}
+
+function retrieveLocal() { // Retrieve library from local storage
+    const storedLibrary = JSON.parse(localStorage.getItem('storedLibrary'));
+    if (storedLibrary) {
+        myLibrary = storedLibrary;
+    } else myLibrary = defaultLibrary; // If !storedLibrary, use default
+}
+
 // function clearTable() {
+// const numRows = libraryTable.rows.length;
 //     for (i = 0; i <= libraryTable.rows.length; i++) {
 //         console.log(i);
 //         libraryTable.removeChild(libraryTable.firstChild);
@@ -68,9 +73,9 @@ function deleteBook(index) {
 
 function display() {
     libraryTable.innerHTML = ''; // Not a secure solution, but other options haven't worked yet
-    for (j = 0; j < myLibrary.length; j++) {
+    for (j = 0; j < myLibrary.length; j++) { // Iterate through each item in library array
         let newRow = libraryTable.insertRow();
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < 4; i++) { // Create 4 cells per row
             let newCell = newRow.insertCell();
             switch (i) {
                 case 0:
@@ -82,21 +87,23 @@ function display() {
                 case 2:
                     const statusBtn = document.createElement('button');
                     statusBtn.classList.add('status-btn');
-                    statusBtn.id = j;
+                    statusBtn.id = j; // Correlate id to library index
                     statusBtn.textContent = myLibrary[j].status;
                     newCell.append(statusBtn);
-                    statusBtn.addEventListener('click', () => changeStatus(statusBtn.id));
+                    statusBtn.addEventListener('click', () => changeStatus(statusBtn.id)); // Apply eventListener to each button as created
                     break;
                 case 3:
                     const deleteBtn = document.createElement('button');
                     deleteBtn.classList.add('delete-btn');
-                    deleteBtn.id = j;
+                    deleteBtn.id = j; // Correlate id to library index
                     deleteBtn.textContent = 'Delete';
                     newCell.append(deleteBtn);
                     deleteBtn.addEventListener('click', () => deleteBook(deleteBtn.id));
             }
         }
     }
+    storeLocal(myLibrary); // Every time display updates, update local storage
 }
 
+retrieveLocal(); // Only retrieve data from local on program open
 display();
