@@ -63,11 +63,11 @@ function retrieveLocal() { // Retrieve library from local storage
     } else myLibrary = defaultLibrary; // If !storedLibrary, use default
 }
 
-// function clearTable() {
-// const numRows = libraryTable.rows.length;
-//     for (i = 0; i <= libraryTable.rows.length; i++) {
+// function clearTable() { // Attempt at using a loop with removeChild to clear tboy tr
+//     const numRows = libraryTable.rows.length;
+//     for (i = 0; i <= numRows; i++) {
 //         console.log(i);
-//         libraryTable.removeChild(libraryTable.firstChild);
+//         libraryTable.removeChild(libraryTable.tr);
 //     }
 // }
 
