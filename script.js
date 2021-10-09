@@ -12,6 +12,14 @@ let defaultLibrary = [
   },
 ];
 
+// // Book constructor function
+// function Book(title, author, status) {
+//   this.title = title;
+//   this.author = author;
+//   this.status = status;
+// }
+
+// Book class declaration
 class Book {
   constructor(title, author, status) {
     // New book constructor
