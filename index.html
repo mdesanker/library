@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>My Library</h1>
-        <div class="header-btns">
-            <button id="login">LOGIN</button>
-            <button id="signup">SIGNUP</button>
-        </div>
+      <h1>My Library</h1>
+      <div class="header-btns">
+        <button id="login">LOGIN</button>
+        <button id="signup">SIGNUP</button>
+      </div>
     </header>
     <main>
-        <hr>
-        <div class="form-container">
-            <form action="">
-                <div class="entry">
-                    <div class="input-holder">
-                        <label for="title-input">Title</label>
-                        <input type="text" id="title-input" required>
-                    </div>
-                    <div class="input-holder">
-                        <label for="author-input">Author</label>
-                        <input type="text" id="author-input" required>
-                    </div>
-                    <div class="input-holder">
-                        <label for="status-select">Status</label>
-                        <select name="status" id="status-select">Status
-                            <option value="read" default>Read</option>
-                            <option value="unread">Not read</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="submit">
-                    <button type="submit" id="submit-btn">Submit</button>
-                </div>
-            </form>
-        </div>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th id="title-col">Title</th>
-                        <th id="author-col">Author</th>
-                        <th id="status-col">Status</th>
-                        <th id="delete-col">&nbsp</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+      <hr />
+      <div class="form-container">
+        <form action="">
+          <div class="entry">
+            <div class="input-holder">
+              <label for="title-input">Title</label>
+              <input type="text" id="title-input" required minlength="5" />
+              <p id="title-error"></p>
+            </div>
+            <div class="input-holder">
+              <label for="author-input">Author</label>
+              <input type="text" id="author-input" required minlength="5" />
+              <p id="author-error"></p>
+            </div>
+            <div class="input-holder">
+              <label for="status-select">Status</label>
+              <select name="status" id="status-select">
+                Status
+                <option value="unread" default>Not read</option>
+                <option value="read">Read</option>
+              </select>
+            </div>
+          </div>
+          <div class="submit">
+            <button type="submit" id="submit-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="title-col">Title</th>
+              <th id="author-col">Author</th>
+              <th id="status-col">Status</th>
+              <th id="delete-col">&nbsp</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </main>
-    <footer>
-
-    </footer>
+    <footer></footer>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

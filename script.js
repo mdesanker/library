@@ -34,10 +34,32 @@ class Book {
 // }
 
 const bookTitle = document.querySelector("#title-input");
+const titleError = document.querySelector("#title-error");
 const bookAuthor = document.querySelector("#author-input");
+const authorError = document.querySelector("#author-error");
 const bookStatus = document.querySelector("#status-select");
 const libraryTable = document.querySelector("tbody");
 const form = document.querySelector("form");
+
+bookTitle.addEventListener("input", function () {
+  if (bookTitle.validity.tooShort) {
+    titleError.className = "error";
+    titleError.textContent = "Please enter a valid title";
+  } else {
+    titleError.textContent = "";
+    titleError.className = "";
+  }
+});
+
+bookAuthor.addEventListener("input", function () {
+  if (bookAuthor.validity.tooShort) {
+    authorError.className = "error";
+    authorError.textContent = "Please enter a valid author";
+  } else {
+    authorError.textContent = "";
+    authorError.className = "";
+  }
+});
 
 form.addEventListener("submit", (e) => {
   // Update library table on new entry submission
