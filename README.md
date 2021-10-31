@@ -2,6 +2,8 @@ Library catalog.
 
 Created using HTML, CSS, and JavaScript.
 
+Live demo [here](https://mdesanker.github.io/library/)
+
 Simple library app that allows users to add books by inputing book title, author and read status into a form. Submitting information in form adds book to library stored in an array and updates a table displaying books in library.
 
 User can change read status by clicking on status button in each row. User can remove books from library by clicking delete button.
